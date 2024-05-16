@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  </head>
+  <body class="main">
+    <div class="image-container">
+      <img src="{% static '../static/images/miki.jpg' %}" alt="" />
+    </div>
+    <div class="form-container">
+      <div class="header">
+        <h1>Login</h1>
+        <p>Input your credentials</p>
+      </div>
+      <form method="post" class="form">
+        {% csrf_token %}
+        <div class="email-style">
+          <label for="username"> Email: </label>
+          <input
+            placeholder="Enter Email: "
+            type="username"
+            name="username"
+            id="username"
+          />
+        </div>
+        <div class="email-style">
+          <label for="password"> Password: </label>
+          <input
+            placeholder="******"
+            type="password"
+            name="password"
+            id="password"
+          />
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" id="agree" name="agree" />
+          <label for="agree"
+            >I agree to the <a href="#">Terms and Conditions.</a></label
+          >
+        </div>
+
+        <button type="submit">Login</button>
+        <p class="register-link">
+          Don't have an account? <a href="{% url 'register' %}">Register</a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>
